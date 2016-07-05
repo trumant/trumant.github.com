@@ -271,7 +271,7 @@ neutron subnet-create physnet1 192.168.2.0/24 \
 
 ### Project/Tenant network
 
-Requires a demo project to have been setup and a `demo-project-openrc` with the project credentials.
+Requires a demo project to have been setup and a `demo-openrc` with the project credentials.
 
 ```bash
 ssh man1.oslab
