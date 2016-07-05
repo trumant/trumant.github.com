@@ -16,7 +16,6 @@ github_username:  trumant
 timezone: America/New_York
 
 # Build settings
-markdown: redcarpet
 highlighter: rouge
 
 redcarpet:
