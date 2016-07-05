@@ -17,7 +17,7 @@ timezone: America/New_York
 
 # Build settings
 markdown: redcarpet
-highlighter: pygments
+highlighter: rouge
 
 redcarpet:
   extensions: ["no_intra_emphasis", "tables", "autolink", "strikethrough", "with_toc_data"]
