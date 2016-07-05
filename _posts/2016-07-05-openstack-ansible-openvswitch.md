@@ -32,7 +32,7 @@ OpenStack-Ansible is going to expect 2 Linux bridges: `br-mgmt` and `br-vlan` on
 
 ### /etc/network/interfaces
 
-{% highlight shell %}
+```bash
 auto lo
 iface lo inet loopback
 
@@ -45,11 +45,11 @@ auto eth1
 iface eth1 inet manual
 
 source /etc/network/interfaces.d/*.cfg
-{% endhighlight %}
+```
 
 ### /etc/network/interfaces.d/br-mgmt.cfg
 
-{% highlight shell %}
+```bash
 # OpenStack Management network bridge
 auto br-mgmt
 iface br-mgmt inet static
@@ -61,11 +61,11 @@ iface br-mgmt inet static
   netmask 255.255.255.0
   gateway 192.168.1.1
   dns-nameservers 8.8.8.8 8.8.4.4
-{% endhighlight %}
+```
 
 ###  /etc/network/interfaces.d/br-vlan.cfg
 
-{% highlight shell %}
+```bash
 # OpenStack Networking VLAN bridge
 auto br-vlan
 iface br-vlan inet manual
@@ -73,7 +73,7 @@ iface br-vlan inet manual
   bridge_waitport 0
   bridge_fd 0
   bridge_ports eth1
-{% endhighlight %}
+```
 
 ## Configuration
 
@@ -81,7 +81,7 @@ I define the network configuration and host groupings in
 
 ### /etc/openstack_deploy/openstack_user_config.yml
 
-{% highlight yaml %}
+```yaml
 ---
 cidr_networks:
   container: 192.168.1.0/24
@@ -150,13 +150,13 @@ haproxy_hosts:
 log_hosts:
   man1.oslab:
     ip: 192.168.1.20
-{% endhighlight %}
+```
 
 And I define my user-specific overrides in
 
 ### /etc/openstack_deploy/user_variables.yml
 
-{% highlight yaml %}
+```yaml
 # Ensure the openvswitch kernel module is loaded
 openstack_host_specific_kernel_modules:
   - name: "openvswitch"
@@ -185,20 +185,20 @@ neutron_provider_networks:
   network_types: "vlan"
   network_vlan_ranges: "physnet1:102:199"
   network_mappings: "physnet1:br-provider"
-{% endhighlight %}
+```
 
 ## Installation
 
 Run the OpenStack-Ansible playbooks to install and configure the two lab hosts
 
-{% highlight shell %}
+```
 openstack-ansible setup-hosts.yml
 openstack-ansible setup-infrastructure.yml
 openstack-ansible os-keystone-install.yml
 openstack-ansible os-glance-install.yml
 openstack-ansible os-nova-install.yml
 openstack-ansible os-neutron-install.yml
-{% endhighlight %}
+```
 
 ## Open vSwitch Configuration
 
@@ -206,7 +206,7 @@ I created a custom playbook for setting up the Open vSwitch bridges and ports th
 
 ### /opt/openstack-ansible/playbooks/ovs-setup.yml
 
-{% highlight yaml %}
+```yaml
 ---
 - name: Setup OVS bridges
   hosts: neutron_openvswitch_agent
@@ -233,14 +233,14 @@ I created a custom playbook for setting up the Open vSwitch bridges and ports th
       service:
         name: neutron-openvswitch-agent
         state: restarted
-{% endhighlight %}
+```
 
 I run that with:
 
-{% highlight shell %}
+```bash
 cd /opt/openstack-ansible/playbooks
 openstack-ansible ovs-setup.yml
-{% endhighlight %}
+```
 
 ## Deployment View
 
@@ -252,7 +252,7 @@ After installing OpenStack with OpenStack-Ansible plays and setting up Open vSwi
 
 ### Provider network
 
-{% highlight shell %}
+```bash
 ssh man1.oslab
 lxc-attach -n `lxc-ls | grep utility`
 source openrc
@@ -267,13 +267,13 @@ neutron net-create physnet1 --shared \
 neutron subnet-create physnet1 192.168.2.0/24 \
   --name physnet-subnet \
   --gateway 192.168.2.1
-{% endhighlight %}
+```
 
 ### Project/Tenant network
 
 Requires a demo project to have been setup and a `demo-project-openrc` with the project credentials.
 
-{% highlight shell %}
+```bash
 ssh man1.oslab
 lxc-attach -n `lxc-ls | grep utility`
 source demo-openrc
@@ -285,13 +285,13 @@ neutron net-create project
 neutron subnet-create project 192.168.3.0/24 \
   --name project-subnet \
   --gateway 192.168.3.1
-{% endhighlight %}
+```
 
 ## Launch Instances
 
 Requires flavor, image and key setup:
 
-{% highlight shell %}
+```bash
 ssh man1.oslab
 lxc-attach -n `lxc-ls | grep utility`
 source demo-openrc
@@ -318,10 +318,10 @@ openstack server create \
   --security-group default \
   --nic net-id=UUID_OF_PROJECT_NETWORK \
   --key-name mykey project-instance
-{% endhighlight %}
+```
 
 ## Validate Instance Connectivity
-{% highlight shell %}
+```bash
 ssh man1.oslab
 lxc-attach -n `lxc-ls | grep neutron_agents_`
 
@@ -332,7 +332,7 @@ ip netns exec `ip netns | grep UUID_OF_PROVIDER_NETWORK` \
 # ping project instance from the project network namespace
 ip netns exec `ip netns | grep UUID_OF_PROJECT_NETWORK` \
   ping -c 3 PROJECT_INSTANCE_IP
-{% endhighlight %}
+```
 
 ## Conclusion
 
