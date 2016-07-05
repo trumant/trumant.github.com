@@ -1,0 +1,22 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Travis Truman
+email: trumant@gmail.com
+description: An infrequently updated tech blog by Travis Truman
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://trumant.github.io" # the base hostname & protocol for your site
+twitter_username: travistruman
+github_username:  trumant
+timezone: America/New_York
+
+# Build settings
+markdown: kramdown
+
+kramdown:
+  input: GFM
