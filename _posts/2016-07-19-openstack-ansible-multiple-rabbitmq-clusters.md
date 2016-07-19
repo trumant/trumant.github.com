@@ -22,7 +22,7 @@ In the example architecture presented here, one RabbitMQ cluster is used for all
 
 OpenStack-Ansible requires the following example configuration in order to manage the RPC cluster.
 
-### `/etc/openstack_deploy/openstack_user_config.yml`
+### /etc/openstack_deploy/openstack_user_config.yml
 
 ```yaml
 # These hosts will provide the physical infrastructure for
@@ -50,7 +50,7 @@ When OpenStack-Ansible's dynamic inventory system processes the configuration ab
 
 To add a second cluster, we take advantage of the flexibility of OpenStack-Ansible inventory configuration and create a new configuration file for our new inventory groups that will be used for the second cluster.
 
-### `/etc/openstack_deploy/env.d/telemetry_rabbitmq.yml`
+### /etc/openstack_deploy/env.d/telemetry_rabbitmq.yml
 
 ```yaml
 component_skel:
