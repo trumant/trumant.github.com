@@ -39,12 +39,11 @@ shared-infra_hosts:
 
 When OpenStack-Ansible's dynamic inventory system processes the configuration above, it will generate inventory groups for our Rabbit MQ RPC cluster.
 
-| Group | Description |
-| --- | --- |
-| shared-infra_hosts | Physical hosts that will run the LXC containers |
-| rabbitmq | Contains 3 LXC container hosts that will run RabbitMQ |
-| rabbitmq_all | Umbrella group containing the rabbitmq group |
+### Inventory groups
 
+ * **shared-infra_hosts** - Physical hosts that will run the LXC containers
+ * **rabbitmq** - 3 LXC container hosts that will run RabbitMQ
+ * **rabbitmq_all** - Umbrella group containing the rabbitmq group
 
 ## Notification and events cluster
 
@@ -81,11 +80,11 @@ physical_skel:
 
 When OpenStack-Ansible's dynamic inventory system processes the configuration above, it will generate inventory groups for our telemetry messaging cluster.
 
-| Group | Description |
-| --- | --- |
-| telemetry-infra_hosts | Physical hosts that will run the LXC containers |
-| telemetry_rabbitmq | Contains 3 LXC container hosts that will run RabbitMQ |
-| telemetry_rabbitmq_all | Umbrella group containing the telemetry_rabbitmq group |
+### Inventory groups
+
+ * **telemetry-infra_hosts** - Physical hosts that will run the LXC containers
+ * **telemetry_rabbitmq** - 3 LXC container hosts that will run RabbitMQ
+ * **telemetry-rabbitmq_all** - Umbrella group containing the telemetry_rabbitmq group
 
 ## Build the clusters
 
