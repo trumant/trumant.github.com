@@ -78,6 +78,24 @@ physical_skel:
       - hosts
 ```
 
+The configuration above declares a new deployable component named `telemetry_rabbitmq`. This component will run in LXC containers that live within the Ansible inventory group `telemetry-infra_containers`. The containers themselves, will run on the hosts in the `telemetry-infra_hosts` Ansible inventory group.
+
+Now that the component -> container -> physical host mapping is done, we need to configure the set of hosts that will belong to the `telemetry-infra_hosts` group.
+
+### /etc/openstack_deploy/openstack_user_config.yml
+
+```yaml
+# These hosts will provide the physical infrastructure for
+# LXC containers that will run the telemetry RabbitMQ cluster
+telemetry-infra_hosts:
+  infra4.oslab:
+    ip: 192.168.1.23
+  infra5.oslab:
+    ip: 192.168.1.24
+  infra6.oslab:
+    ip: 192.168.1.25
+```
+
 When OpenStack-Ansible's dynamic inventory system processes the configuration above, it will generate inventory groups for our telemetry messaging cluster.
 
 ### Inventory groups
