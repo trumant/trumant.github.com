@@ -52,6 +52,7 @@ To add a second cluster, we take advantage of the flexibility of OpenStack-Ansib
 ### /etc/openstack_deploy/env.d/telemetry_rabbitmq.yml
 
 ```yaml
+---
 component_skel:
   telemetry_rabbitmq:
     belongs_to:
