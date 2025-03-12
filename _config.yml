@@ -15,7 +15,7 @@ twitter_username: travistruman
 github_username:  trumant
 timezone: America/New_York
 
-markdown: redcarpet
+markdown: kramdown
 
 # Build settings
 highlighter: rouge

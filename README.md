@@ -1,0 +1,1 @@
+Basic [Jekyll-powered](https://jekyllrb.com) technical blog
