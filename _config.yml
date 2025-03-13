@@ -11,7 +11,6 @@ email: trumant@gmail.com
 description: An infrequently updated tech blog by Travis Truman
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://trumant.github.io" # the base hostname & protocol for your site
-twitter_username: travistruman
 github_username:  trumant
 timezone: America/New_York
 
