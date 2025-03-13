@@ -14,7 +14,7 @@ If you plan to or currently manage and operate EC2 instances in your AWS infrast
 
 ### #1 - You can't control what you can't see and report on
 
-Before diving into implementation ensure you have an efficient, repeatable and high quality views into the EC2 fleet that lives within your compliance boundary. This likely includes more than a single account and region so don't rely on the AWS console. Consider that your technical audience probably needs one level of detail and your compliance partners want a completely different level of detail. This is where cloud security posture management and asset inventory solutions shine and provide you with the first easy button, so hopefully you already have one in place that provides the level of visibility into EC2 that will be required. If not, find the gaps and prioritize closing them now.
+Before diving into implementation ensure you have efficient, repeatable and high quality views into the EC2 fleet that lives within your compliance boundary. This likely includes more than a single account and region so don't rely on the AWS console. Consider that your technical audience probably needs one level of detail and your compliance partners want a completely different level of detail. This is where cloud security posture management and asset inventory solutions shine and provide you with the first easy button, so hopefully you already have one in place that provides the level of visibility into EC2 that will be required. If not, find the gaps and prioritize closing them now.
 
 ### #2 - Reduce your reliance on directly managed EC2 instances
 
