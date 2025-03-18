@@ -38,7 +38,7 @@ Here is an example of the index created that links to all of the relevant docume
 
 ![jupiterone/security-policy-templates Markdown index screenshot](/assets/policy_docs.png)
 
-This project has great potential to be an easy button for your organization from my engineering-centric perspective. I would consider a stop gap solution for most organizations, providing quick time to compliance while deferring investment in a commercial solution. However, keep in mind your policy and procedure stakeholders: Legal, Privacy, CISO, etc and whether or not they are going to be comfortable authoring and reviewing policy changes using Markdown and Github, even if only for a short while.
+This project has great potential to be an easy button for your organization from my engineering-centric perspective. I would consider it a stop gap solution for most organizations, providing quick time to compliance while deferring investment in a commercial solution. However, keep in mind your policy and procedure stakeholders: Legal, Privacy, CISO, etc and whether or not they are going to be comfortable authoring and reviewing policy changes using Markdown and Github, even if only for a short while.
 
 ## AT-2 Literacy Training & Awareness
 
