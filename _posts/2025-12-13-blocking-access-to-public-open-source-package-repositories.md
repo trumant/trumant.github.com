@@ -11,46 +11,13 @@ In order to reduce the risk of runner compromise through the installation of a m
 
 ## Current architecture
 
-```mermaid
-graph TD
-    subgraph GCP
-        subgraph GKE Cluster
-            subgraph Istio Service Mesh
-                GHA_Runner[GitHub Actions Runner]
-            end
-        end
-    end
-
-    subgraph Internet
-        OSS_Repo[OSS Package Repository]
-    end
-
-    GHA_Runner --> OSS_Repo
-```
+![Current architecture](/assets/runners.svg)
 
 ## Desired architecture
 
 In our desired architecture, we want to prevent runners from accessing public repositories and instead provide access to a controlled set of dependencies mirrored from those same sources.
 
-```mermaid
-graph TD
-    subgraph GCP
-        subgraph GKE Cluster
-            subgraph Istio Service Mesh
-                GHA_Runner[GitHub Actions Runner]
-            end
-        end
-        OSS_Mirror[OSS Package Repository Mirror]
-    end
-
-    subgraph Internet
-        OSS_Repo["OSS Package Repository (npm, PyPi, Maven Central)"]
-    end
-
-    GHA_Runner --> OSS_Mirror
-    OSS_Mirror -- "Security & Compliance Policies" --> OSS_Repo
-    GHA_Runner -- "X Blocked Direct Access X" --> OSS_Repo
-```
+![Desired architecture](/assets/updated_runners.svg)
 
 ## Solutions considered
 
