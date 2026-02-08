@@ -1,0 +1,31 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: egress-mirror-vs
+spec:
+  hosts:
+  - {{ .Values.mirrorHost }}
+  gateways:
+  - istio-egressgateway
+  - mesh
+  http:
+  - match:
+    - gateways:
+      - mesh # from sidecars
+      port: 443
+    route:
+    - destination:
+        host: istio-egressgateway.istio-system.svc.cluster.local
+        port:
+          number: 443
+      weight: 100
+  - match:
+    - gateways:
+      - istio-egressgateway
+      port: 443
+    route:
+    - destination:
+        host: {{ .Values.mirrorHost }}
+        port:
+          number: 443
+      weight: 100

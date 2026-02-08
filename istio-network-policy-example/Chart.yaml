@@ -1,0 +1,4 @@
+apiVersion: v2
+name: istio-network-policy-example
+description: An example Helm chart for deploying Istio Egress Gateway and Network Policies
+version: 0.1.0

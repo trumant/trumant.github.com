@@ -1,0 +1,8 @@
+# Default values for istio-netpol-example.
+
+# Labels for the GitHub Actions runner pods that this policy should apply to
+runnerLabels:
+  app: gha-runner
+
+# The hostname of the OSS package repository mirror
+mirrorHost: "mirror.example.com"
